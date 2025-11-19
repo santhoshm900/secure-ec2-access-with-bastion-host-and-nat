@@ -143,5 +143,16 @@ Click **Connect**
 
 ---
 
+✔ File uploaded successfully
+
+---
+
+### 4. Set Correct Permissions (VERY IMPORTANT)
+
+Inside the Public EC2 terminal, run:
+
+```bash
+chmod 400 private-keypair.pem
+
 
 
