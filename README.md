@@ -94,3 +94,60 @@ Click Load → choose your .pem file
 Click Save private key
 
 Save the key as:
+Step B: Open PuTTY
+
+Hostname:
+
+ubuntu@<PUBLIC-EC2-PUBLIC-IP>
+
+
+Go to:
+
+Connection → SSH → Auth → Browse → select yourkey.ppk
+
+
+Click Open
+
+✔️ You are now inside Public EC2
+✔️ Public EC2 private IP example: 10.0.0.170
+
+2️⃣ Upload Private Key to Public EC2 (via FileZilla)
+
+Use FileZilla SFTP:
+
+Host:
+
+sftp://ubuntu@<PUBLIC-EC2-PUBLIC-IP>
+
+
+Username:
+
+ubuntu
+
+
+Key File:
+
+yourkey.pem or yourkey.ppk
+
+
+Upload this file:
+
+private-keypair.pem
+
+
+Location to upload on public EC2:
+
+/home/ubuntu/
+
+
+✔️ Key uploaded successfully for jump access.
+
+3️⃣ Set Correct Permission for Private Key
+
+Inside public EC2 terminal, run:
+
+chmod 400 private-keypair.pem
+
+
+✔️ This is required
+✔️ Otherwise SSH → “Permission denied (publickey)”
