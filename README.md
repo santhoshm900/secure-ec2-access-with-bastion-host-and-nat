@@ -73,98 +73,26 @@ The setup follows AWS best practices and includes public/private subnets, NAT Ga
 
 ---
 
-## 🧩 **How Access Works (Flow)**
+## 🧩 How Access Works (Flow)
 
-1. **Laptop → Public EC2 (SSH allowed from your IP)**  
-2. **Public EC2 → Private EC2 (SSH allowed only from Bastion Host SG)**  
-3. Private EC2 gets internet using **NAT Gateway**
+1. **Laptop → Public EC2 (SSH allowed from your IP)**
+2. **Public EC2 → Private EC2 (SSH allowed only from Bastion Host SG)**
+3. **Private EC2 gets internet using NAT Gateway**
 
 This isolates private instances from public exposure.
 
-## 🖥️ Connect to Your EC2 Using PuTTY
+---
+
+# 🖥️ Connect to Your EC2 Using PuTTY
 
 **Instance Name:** public-ec2  
-**Key File:** linuxkeypair.pem  
+**Key File:** linuxkeypair.pem
 
-### 1️⃣ Convert your `.pem` file to `.ppk` using PuTTYgen
+---
 
-Open **PuTTYgen**
+## 1️⃣ Convert your `.pem` file to `.ppk` using PuTTYgen
 
-Click **Load**
-
-Change file type → **All Files (*.*)**
-
-Select your key file:
-
-
-Click **Save private key**
-
-Save the new file as:
-
-1️⃣ Open FileZilla
-
-Go to:
-File → Site Manager → New Site
-
-Set the following:
-
-🔹 Protocol
-SFTP – SSH File Transfer Protocol
-
-🔹 Host
-<PUBLIC-EC2-PUBLIC-IP>
-
-
-Example:
-
-15.xx.xx.xx
-
-🔹 Port
-22
-
-🔹 Logon Type
-Key file
-
-🔹 User
-ubuntu
-
-🔹 Key File
-
-Select your PuTTY converted key:
-
-linuxkeypair.ppk
-
-2️⃣ Connect to Public EC2
-
-Click Connect
-
-If it asks "Trust host key?" → Click Yes
-
-Now your Ubuntu user directory will open:
-
-/home/ubuntu/
-
-3️⃣ Upload Private EC2 Key File
-
-Drag & drop this file from your laptop → public EC2:
-
-private-keypair.pem
-
-
-Upload location must be:
-
-/home/ubuntu/
-
-
-✔️ Key uploaded successfully for jump access.
-
-4️⃣ Set Correct Permission (IMPORTANT)
-
-Now go to your PuTTY public-ec2 terminal and run:
-
-chmod 400 private-keypair.pem
-
-
-✔️ This is required
-❗ Otherwise SSH will fail with:
-"Permission denied (publickey)"
+1. Open **PuTTYgen**
+2. Click **Load**
+3. Change file type → **All Files (.)**
+4. Select your key file:  
