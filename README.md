@@ -83,6 +83,14 @@ This isolates private instances from public exposure.
 
 ---
 
-## 📥 **SSH Commands**
+1️⃣ Connect to Public EC2 Using PuTTY
 
-### 1️⃣ SSH into Public EC2
+Step A: Convert .pem → .ppk
+
+Open PuTTYgen
+
+Click Load → choose your .pem file
+
+Click Save private key
+
+Save the key as:
