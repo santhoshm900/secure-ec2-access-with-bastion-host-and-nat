@@ -153,6 +153,41 @@ Inside the Public EC2 terminal, run:
 
 ```bash
 chmod 400 private-keypair.pem
+🖥️ 5. SSH from Public EC2 → Private EC2
+
+After uploading the key and fixing permissions, connect to your Private EC2 from inside your Public EC2.
+
+🔹 Step 1: Confirm Key Inside Public EC2
+ls
+
+
+You must see:
+
+linuxkeypair.pem
+
+🔹 Step 2: Set Correct Permissions (VERY IMPORTANT)
+chmod 400 linuxkeypair.pem
+
+
+This avoids the error:
+
+Permission denied (publickey)
+
+🔹 Step 3: SSH into Private EC2 (using Private IP)
+
+Replace with your private EC2 private IP (example below):
+
+ssh -i linuxkeypair.pem ubuntu@10.0.1.192
+
+🔹 Step 4: Successful Login
+
+You should see:
+
+Welcome to Ubuntu...
+ubuntu@ip-10-0-1-192:~$
+
+
+✔ You are now inside Private EC2 (via Public EC2 Bastion Host)
 
 
 
