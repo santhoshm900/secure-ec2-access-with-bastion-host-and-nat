@@ -105,62 +105,43 @@ Copy code
 
 ---
 
-# 📤 Upload Private Key to Public EC2 (Using FileZilla)
 
-## 2️⃣ Open FileZilla
+---
+
+## Upload Private Key to Public EC2 (Using FileZilla)
+
+### 2. Open FileZilla
 
 Go to:  
 **File → Site Manager → New Site**
 
-Set the following:
+Set the following values:
 
-- **Protocol:** SFTP – SSH File Transfer Protocol
+- **Protocol:** SFTP – SSH File Transfer Protocol  
 - **Host:**  
-Example:  
-15.xx.xx.xx
-
-markdown
-Copy code
-- **Port:** 22
-- **Logon Type:** Key file
-- **User:** ubuntu
-- **Key File:**  
-linuxkeypair.ppk
-
-yaml
-Copy code
-
-Click **Connect**.
+Example:
 
 ---
 
-## 3️⃣ Upload `private-keypair.pem` to Public EC2
 
-Upload this file from your laptop to:
+- **Port:** 22  
+- **Logon Type:** Key file  
+- **User:** ubuntu  
+- **Key File:**
 
-/home/ubuntu/
 
-yaml
-Copy code
-
-✔️ **private-keypair.pem uploaded successfully**
+Click **Connect**
 
 ---
 
-## 4️⃣ Set Correct Permission
+### 3. Upload `private-keypair.pem` to Public EC2
 
-Inside **public-ec2** terminal, run:
+Upload this file to the EC2 directory:
 
-```bash
-chmod 400 private-keypair.pem
-✔️ Required
-❗ Otherwise SSH will fail with: "Permission denied (publickey)"
 
-yaml
-Copy code
+Click **Connect**
 
 ---
-
 
 
 
