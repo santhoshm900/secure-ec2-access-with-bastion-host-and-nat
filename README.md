@@ -163,7 +163,7 @@ ls
 
 You must see:
 
-linuxkeypair.pem
+private-keypair.pem
 
 🔹 Step 2: Set Correct Permissions (VERY IMPORTANT)
 chmod 400 linuxkeypair.pem
@@ -177,7 +177,7 @@ Permission denied (publickey)
 
 Replace with your private EC2 private IP (example below):
 
-ssh -i linuxkeypair.pem ubuntu@10.0.1.192
+ssh -i private-keypair.pem ubuntu@10.0.1.192
 
 🔹 Step 4: Successful Login
 
