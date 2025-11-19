@@ -96,3 +96,71 @@ This isolates private instances from public exposure.
 2. Click **Load**
 3. Change file type → **All Files (.)**
 4. Select your key file:  
+5. Click **Save private key**
+6. Save the new file as:  
+linuxkeypair.ppk
+
+yaml
+Copy code
+
+---
+
+# 📤 Upload Private Key to Public EC2 (Using FileZilla)
+
+## 2️⃣ Open FileZilla
+
+Go to:  
+**File → Site Manager → New Site**
+
+Set the following:
+
+- **Protocol:** SFTP – SSH File Transfer Protocol
+- **Host:**  
+Example:  
+15.xx.xx.xx
+
+markdown
+Copy code
+- **Port:** 22
+- **Logon Type:** Key file
+- **User:** ubuntu
+- **Key File:**  
+linuxkeypair.ppk
+
+yaml
+Copy code
+
+Click **Connect**.
+
+---
+
+## 3️⃣ Upload `private-keypair.pem` to Public EC2
+
+Upload this file from your laptop to:
+
+/home/ubuntu/
+
+yaml
+Copy code
+
+✔️ **private-keypair.pem uploaded successfully**
+
+---
+
+## 4️⃣ Set Correct Permission
+
+Inside **public-ec2** terminal, run:
+
+```bash
+chmod 400 private-keypair.pem
+✔️ Required
+❗ Otherwise SSH will fail with: "Permission denied (publickey)"
+
+yaml
+Copy code
+
+---
+
+
+
+
