@@ -96,3 +96,8 @@ Change file type → **All Files (*.*)**
 
 Select your key file:
 
+
+Click **Save private key**
+
+Save the new file as:
+
