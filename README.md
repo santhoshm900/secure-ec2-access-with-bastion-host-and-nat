@@ -82,11 +82,16 @@ The setup follows AWS best practices and includes public/private subnets, NAT Ga
 This isolates private instances from public exposure.
 
 ---
-
 🖥️ Connect to Public EC2 Using PuTTY
 
-Public EC2 → ubuntu@<Public-IP>
-Key file → linuxkeypair.pem
+Public EC2 Login:
+
+ubuntu@<Public-EC2-Public-IP>
+
+
+Key File Used:
+
+linuxkeypair.pem
 
 1️⃣ Convert .pem → .ppk using PuTTYgen
 
@@ -94,9 +99,9 @@ Open PuTTYgen
 
 Click Load
 
-Select file type → All Files (*.*)
+Change file type to All Files (.)
 
-Choose your PEM file:
+Select your PEM file:
 
 linuxkeypair.pem
 
@@ -106,3 +111,43 @@ Click Save private key
 Save as:
 
 linuxkeypair.ppk
+
+2️⃣ Open PuTTY (Public EC2 Login)
+
+Enter Hostname:
+
+ubuntu@<Public-EC2-Public-IP>
+
+
+Example:
+
+ubuntu@15.xxx.xxx.xxx
+
+3️⃣ Add Private Key in PuTTY
+
+In PuTTY left panel:
+
+Connection → SSH → Auth → Credentials
+
+
+Then:
+
+Click Browse
+
+Select file:
+
+linuxkeypair.ppk
+
+4️⃣ Connect to Public EC2
+
+Click Open
+
+Click Yes for the popup
+
+Successful login shows:
+
+Welcome to Ubuntu...
+ubuntu@ip-10-0-0-170:~$
+
+
+✔️ Now you are inside the Public EC2 (Bastion Host)
