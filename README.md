@@ -83,3 +83,26 @@ This isolates private instances from public exposure.
 
 ---
 
+🖥️ Connect to Public EC2 Using PuTTY
+
+Public EC2 → ubuntu@<Public-IP>
+Key file → linuxkeypair.pem
+
+1️⃣ Convert .pem → .ppk using PuTTYgen
+
+Open PuTTYgen
+
+Click Load
+
+Select file type → All Files (*.*)
+
+Choose your PEM file:
+
+linuxkeypair.pem
+
+
+Click Save private key
+
+Save as:
+
+linuxkeypair.ppk
