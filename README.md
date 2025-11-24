@@ -1,11 +1,9 @@
-# secure-ec2-access-with-bastion-host-and-nat
-Secure AWS VPC setup with a Bastion Host in the public subnet providing SSH access to a private EC2 instance. Includes public/private subnets, NAT Gateway for outbound internet, route tables, security groups, and complete network architecture following AWS best practices.”
+
 
 
 ![AWS Architecture](diagram/aws-bastion-architecture.png)
 
 # Secure EC2 Access with Bastion Host and NAT Gateway
-
 This project demonstrates a secure AWS network architecture using a Bastion Host for SSH access to private EC2 instances.  
 The setup follows AWS best practices and includes public/private subnets, NAT Gateway for outbound internet access, Internet Gateway, custom route tables, and strict security groups.
 
@@ -17,28 +15,28 @@ The setup follows AWS best practices and includes public/private subnets, NAT Ga
 
 ---
 
-🧱 Components Used
-🔹 VPC
+## Components Used 🔶
+
+### VPC 🔷
 
 CIDR: 10.0.0.0/16
 
 Custom VPC created for isolated networking
 
-🔹 Subnets
+### Subnets 🔷
 Subnet Type	Name	CIDR	Zone
 Public Subnet	pub-subnet	10.0.0.0/24	ap-south-1a
 Private Subnet	private-subnet	10.0.1.0/24	ap-south-1b
-🔹 Internet Gateway
-
+### Internet Gateway 🔷
 Attached to VPC for public subnet internet access
 
-🔹 NAT Gateway
+### NAT Gateway 🔷
 
 Placed inside the public subnet
 
 Allows private EC2 outbound internet (updates, packages, etc.)
 
-🔹 Route Tables
+###  Route Tables 🔷
 Public Route Table
 
 10.0.0.0/16 → local
@@ -51,7 +49,7 @@ Private Route Table
 
 0.0.0.0/0 → NAT Gateway
 
-🔹 EC2 Instances
+### EC2 Instances 🔹
 Public EC2 (Bastion Host)
 
 Subnet: 10.0.0.0/24
@@ -70,7 +68,7 @@ Not publicly accessible
 
 SSH allowed only from Bastion Host
 
-🔐 Security Groups
+### Security Groups 🔐
 Public EC2 SG
 
 Inbound:
@@ -91,7 +89,7 @@ Outbound:
 
 All allowed (uses NAT)
 
-🔄 Access Flow
+### Access Flow 🔄
 
 Laptop → Public EC2 (via SSH)
 
@@ -101,7 +99,7 @@ Private EC2 → Internet (via NAT Gateway)
 
 This ensures complete isolation and secure SSH access.
 
-🖥️ Connecting to EC2 Using PuTTY
+### Connecting to EC2 Using PuTTY 🖥️
 Key Pair: linuxkeypair.pem
 
 (Will be converted to .ppk for PuTTY)
@@ -122,7 +120,7 @@ Click Save Private Key
 Save as:
 linuxkeypair.ppk
 
-📤 Upload Private Key to Public EC2 (Using FileZilla)
+### Upload Private Key to Public EC2 (Using FileZilla) 📤
 2️⃣ Open FileZilla → Site Manager
 Field	Value
 Protocol	SFTP
@@ -145,13 +143,13 @@ to your Public EC2 home directory.
 
 ✔ File upload successful.
 
-🔒 4️⃣ Fix Key Permissions in Public EC2
+### 4️⃣ Fix Key Permissions in Public EC2 🔒
 
 Run:
 
 chmod 400 private-keypair.pem
 
-🖥️ 5️⃣ SSH from Public EC2 → Private EC2
+### 5️⃣ SSH from Public EC2 → Private EC2 🖥️
 Step 1: Confirm key exists
 ls
 
