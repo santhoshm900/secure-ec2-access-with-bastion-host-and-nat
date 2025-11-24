@@ -51,6 +51,8 @@ Private Route Table
 
 ### EC2 Instances 🔹
 Public EC2 (Bastion Host)
+### EC2 Instances
+![EC2 Instances](diagram/ec2 instance.png.PNG)
 
 Subnet: 10.0.0.0/24
 
