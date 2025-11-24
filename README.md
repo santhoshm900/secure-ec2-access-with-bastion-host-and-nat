@@ -21,7 +21,8 @@ The setup follows AWS best practices and includes public/private subnets, NAT Ga
 
 CIDR: 10.0.0.0/16
 
-Custom VPC created for isolated networking
+Custom VPC created for isolated networking 
+![VPC](diagram/vpc.png.PNG)
 
 ### Subnets 🔷
 Subnet Type	Name	CIDR	Zone
@@ -51,8 +52,6 @@ Private Route Table
 
 ### EC2 Instances 🔹
 Public EC2 (Bastion Host)
-### EC2 Instances
-![EC2 Instances](diagram/ec2 instance.png.PNG)
 
 Subnet: 10.0.0.0/24
 
