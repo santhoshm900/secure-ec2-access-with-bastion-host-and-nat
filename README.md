@@ -28,12 +28,16 @@ Custom VPC created for isolated networking
 Subnet Type	Name	CIDR	Zone
 Public Subnet	pub-subnet	10.0.0.0/24	ap-south-1a
 Private Subnet	private-subnet	10.0.1.0/24	ap-south-1b
+![Subnets](diagram/subnets.png.PNG)
+
 ### Internet Gateway 🔷
 Attached to VPC for public subnet internet access
+![Internet Gateway](diagram/internet gate way.png.PNG)
+
 
 ### NAT Gateway 🔷
-
 Placed inside the public subnet
+![NAT Gateway](diagram/nat gate way.png.PNG)
 
 Allows private EC2 outbound internet (updates, packages, etc.)
 
@@ -43,12 +47,16 @@ Public Route Table
 10.0.0.0/16 → local
 
 0.0.0.0/0 → Internet Gateway
+![Public Route Table](diagram/public-route.png.PNG)
+
 
 Private Route Table
 
 10.0.0.0/16 → local
 
 0.0.0.0/0 → NAT Gateway
+![Private Route Table](diagram/private route.png.PNG)
+
 
 ### EC2 Instances 🔹
 Public EC2 (Bastion Host)
@@ -89,6 +97,7 @@ SSH → Public EC2 SG only
 Outbound:
 
 All allowed (uses NAT)
+![EC2 Instances](diagram/ec2 instance.png.PNG)
 
 ### Access Flow 🔄
 
